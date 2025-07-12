@@ -1,52 +1,28 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>บทสวดบาลี-แปล พร้อมเสียง</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Player with Highlight</title>
   <style>
-    body { font-family: sans-serif; background: #f4f4f4; padding: 2rem; }
-    h2 { text-align: center; }
-
-    .verse-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem;
-      margin-bottom: 0.5rem;
-      border-radius: 6px;
-      background: #fff;
-      transition: background 0.3s;
-    }
-    .highlight {
-      background: #fff79a !important;
-    }
-    .pali, .thai {
-      width: 48%;
-    }
-    .pali { font-weight: bold; color: #333; }
-    .thai { color: #555; font-size: 0.95rem; }
-
-    @media (max-width: 600px) {
-      .verse-row {
-        flex-direction: column;
-      }
-      .pali, .thai {
-        width: 100%;
-      }
-    }
+    body { font-family: sans-serif; padding: 2rem; background: #f8f9fa; }
+    audio { width: 100%; margin-bottom: 2rem; }
+    .line { padding: 0.5rem; margin-bottom: 0.25rem; border-radius: 5px; }
+    .highlight { background-color: yellow; }
   </style>
 </head>
 <body>
 
-  <h2>บทสวดบาลี - แปลไทย</h2>
+  <h2>เล่นเสียงพร้อมไฮไลต์ข้อความ</h2>
 
   <audio id="player" controls>
-    <source src="audio/sample.mp3" type="audio/mpeg">
-    เบราว์เซอร์ของคุณไม่รองรับเสียง
+    <source src="audio/your-audio.mp3" type="audio/mpeg" />
+    เบราว์เซอร์ของคุณไม่รองรับไฟล์เสียง
   </audio>
 
-  <div id="text-container" style="margin-top: 2rem;"></div>
+  <div id="text-container"></div>
 
   <script src="js/sync.js"></script>
+
 </body>
 </html>
