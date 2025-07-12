@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tripitaka Atuwa</title>
-    <meta name="description" content="සිංහල ත්‍රිපිටකය අටුවාව Software Search Thripitaka Tripitaka Atuwa of Sri Lanka">
-    <meta property="og:type" content="article" />
-    <!--<meta property="og:title" content="බුද්ධ ජයන්ති ත්‍රිපිටකය"> For facebook link previews set by vue meta -->
-    <meta property="og:image" content="https://tipitaka.lk/static/images/og-500x300.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="500">
-    <meta property="og:image:height" content="300">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Tripitaka">
-    <link rel="apple-touch-icon" href="static/images/app-logo.png">
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" type="image/png" sizes="96x96" href="<%= BASE_URL %>static/images/favicon-96x96.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ตัวอย่างเสียง Sync</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    .verse { padding: 0.5rem; margin-bottom: 0.25rem; border-radius: 4px; }
+    .highlight { background-color: yellow; }
+  </style>
+</head>
+<body>
 
-    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">-->
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+  <h1>บทสวดพร้อมเสียง</h1>
+
+  <audio id="player" controls>
+    <source src="audio/sample.mp3" type="audio/mpeg">
+    เบราว์เซอร์ของคุณไม่รองรับเสียง
+  </audio>
+
+  <div id="text-container"></div>
+
+  <script src="js/sync.js"></script>
+
+</body>
 </html>
