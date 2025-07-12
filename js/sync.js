@@ -2,21 +2,29 @@ const audio = document.getElementById('player');
 const container = document.getElementById('text-container');
 let lines = [];
 
-// โหลดข้อความ + เวลา
 fetch('data/data.json')
   .then(res => res.json())
   .then(data => {
     lines = data;
     data.forEach((item, index) => {
-      const div = document.createElement('div');
-      div.classList.add('line');
-      div.id = 'line-' + index;
-      div.textContent = item.text;
-      container.appendChild(div);
+      const row = document.createElement('div');
+      row.classList.add('verse-row');
+      row.id = 'line-' + index;
+
+      const left = document.createElement('div');
+      left.classList.add('pali');
+      left.textContent = item.pali;
+
+      const right = document.createElement('div');
+      right.classList.add('thai');
+      right.textContent = item.thai;
+
+      row.appendChild(left);
+      row.appendChild(right);
+      container.appendChild(row);
     });
   });
 
-// ไฮไลต์ตามเวลา
 audio.addEventListener('timeupdate', () => {
   const current = audio.currentTime;
   lines.forEach((line, index) => {
