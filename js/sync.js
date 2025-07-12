@@ -1,35 +1,27 @@
 const audio = document.getElementById('player');
 const container = document.getElementById('text-container');
-let verses = [];
+let lines = [];
 
-fetch('data/sample-dual.json')
+// โหลดข้อความ + เวลา
+fetch('data/data.json')
   .then(res => res.json())
   .then(data => {
-    verses = data;
+    lines = data;
     data.forEach((item, index) => {
-      const row = document.createElement('div');
-      row.classList.add('verse-row');
-      row.id = `verse-${index}`;
-
-      const pali = document.createElement('div');
-      pali.classList.add('pali');
-      pali.textContent = item.pali;
-
-      const thai = document.createElement('div');
-      thai.classList.add('thai');
-      thai.textContent = item.thai;
-
-      row.appendChild(pali);
-      row.appendChild(thai);
-      container.appendChild(row);
+      const div = document.createElement('div');
+      div.classList.add('line');
+      div.id = 'line-' + index;
+      div.textContent = item.text;
+      container.appendChild(div);
     });
   });
 
+// ไฮไลต์ตามเวลา
 audio.addEventListener('timeupdate', () => {
   const current = audio.currentTime;
-  verses.forEach((item, index) => {
-    const el = document.getElementById(`verse-${index}`);
-    if (current >= item.start && current <= item.end) {
+  lines.forEach((line, index) => {
+    const el = document.getElementById('line-' + index);
+    if (current >= line.start && current <= line.end) {
       el.classList.add('highlight');
     } else {
       el.classList.remove('highlight');
